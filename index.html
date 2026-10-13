@@ -241,5 +241,38 @@ src="https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/banda-lzero
   </footer>
 
   <script src="script.js"></script>
+ 
+<!-- PLAYER FIXO LZerØ -->
+<div id="lzero-player">
+  <div class="lzero-player-info">
+    <span class="lzero-player-label">LZerØ • PLAYER OFICIAL</span>
+    <label for="lzero-track">Escolha a música</label>
+    <select id="lzero-track" onchange="lzeroChangeTrack()">
+      <option value="jogo-do-tempo.mp3">Jogo do Tempo</option>
+      <option value="a-sarce.mp3">A Sarça</option>
+      <option value="cura-meu-coracao.mp3">Cura Meu Coração</option>
+    </select>
+  </div>
+
+  <audio id="lzero-audio" controls preload="metadata">
+    <source src="jogo-do-tempo.mp3" type="audio/mpeg">
+    Seu navegador não conseguiu carregar o áudio.
+  </audio>
+</div>
+
+<script>
+  function lzeroChangeTrack() {
+    const select = document.getElementById("lzero-track");
+    const audio = document.getElementById("lzero-audio");
+
+    audio.src = select.value;
+    audio.load();
+
+    audio.play().catch(() => {
+      // Se o navegador bloquear, basta tocar em Play.
+    });
+  }
+</script>
+ 
 </body>
 </html>

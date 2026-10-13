@@ -5,7 +5,6 @@ const LZERO_LINKS = {
   spotify: "https://open.spotify.com/artist/1B22jCvBNizNsmPAO6Cflw",
   email: "mailto:contato@lzero.com.br"
 };
-
 document.querySelectorAll("[data-link]").forEach((el) => {
   const key = el.dataset.link;
   const url = LZERO_LINKS[key];

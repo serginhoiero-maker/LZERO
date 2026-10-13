@@ -1,8 +1,8 @@
 // Personalize os links abaixo. Deixe "" se ainda não tiver o endereço.
 const LZERO_LINKS = {
-  instagram: "",
-  youtube: "",
-  spotify: "",
+  instagram: "https://www.instagram.com/lzerooficial/",
+  youtube: "https://youtube.com/@lzeroofc",
+  spotify: "https://open.spotify.com/artist/1B22jCvBNizNsmPAO6Cflw",
   email: "mailto:contato@lzero.com.br"
 };
 

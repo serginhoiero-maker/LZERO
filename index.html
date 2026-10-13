@@ -117,9 +117,13 @@ const heroSlides = [
     image.src = heroSlides[heroSlideIndex].src;
     image.alt = heroSlides[heroSlideIndex].alt;
 
-    number.innerHTML =
-      String(heroSlideIndex + 1).padStart(2, "0") +
-      ' <span>— 03</span>';
+   
+number.innerHTML =
+  String(heroSlideIndex + 1).padStart(2, "0") +
+  ' <span>— ' +
+  String(heroSlides.length).padStart(2, "0") +
+  '</span>';
+
   }
 </script>
 

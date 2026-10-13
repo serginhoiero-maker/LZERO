@@ -274,4 +274,81 @@ src="https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/banda-lzero
 </script>
  
 </body>
+ 
+<!-- TRILHA SONORA LZerØ -->
+<div id="lzero-music-player">
+  <button
+    id="lzero-music-toggle"
+    type="button"
+    aria-label="Ativar trilha sonora"
+    onclick="lzeroToggleMusic()">
+    ▶
+  </button>
+
+  <div class="lzero-music-info">
+    <span class="lzero-music-label">LZerØ • TRILHA SONORA</span>
+    <strong>Novo Coração</strong>
+    <span id="lzero-music-status">Toque para ouvir</span>
+  </div>
+
+  <audio
+    id="lzero-background-music"
+    loop
+    preload="none">
+    <source
+      src="abertura-lzero.mp3.mp3"
+      type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+  const lzeroMusic = document.getElementById(
+    "lzero-background-music"
+  );
+
+  const lzeroMusicButton = document.getElementById(
+    "lzero-music-toggle"
+  );
+
+  const lzeroMusicStatus = document.getElementById(
+    "lzero-music-status"
+  );
+
+  function lzeroToggleMusic() {
+    if (lzeroMusic.paused) {
+      lzeroMusic.play()
+        .then(() => {
+          lzeroMusicButton.textContent = "Ⅱ";
+          lzeroMusicButton.setAttribute(
+            "aria-label",
+            "Pausar trilha sonora"
+          );
+          lzeroMusicStatus.textContent = "Reproduzindo";
+        })
+        .catch(() => {
+          lzeroMusicStatus.textContent =
+            "Não foi possível carregar a música";
+        });
+    } else {
+      lzeroMusic.pause();
+      lzeroMusicButton.textContent = "▶";
+      lzeroMusicButton.setAttribute(
+        "aria-label",
+        "Ativar trilha sonora"
+      );
+      lzeroMusicStatus.textContent = "Pausado";
+    }
+  }
+
+  lzeroMusic.addEventListener("ended", () => {
+    lzeroMusicButton.textContent = "▶";
+    lzeroMusicStatus.textContent = "Toque para ouvir";
+  });
+
+  lzeroMusic.addEventListener("error", () => {
+    lzeroMusicStatus.textContent =
+      "Verifique o arquivo de áudio";
+  });
+</script>
+ 
 </html>

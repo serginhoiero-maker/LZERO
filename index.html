@@ -368,6 +368,9 @@ number.innerHTML =
 
   <div class="lzero-music-info">
     <span class="lzero-music-label">LZerØ • TRILHA SONORA</span>
+    <span id="lzero-music-status" class="lzero-music-label">
+  Toque para ouvir
+</span>
     <strong> LØ O RENASCER </strong>
 <span class="lzero-music-label">ORQUESTRA LZerØ</span>
   </div>
@@ -382,54 +385,41 @@ number.innerHTML =
   </audio>
 </div>
 
-<script>
-  const lzeroMusic = document.getElementById(
-    "lzero-background-music"
-  );
+  </div>
 
-  const lzeroMusicButton = document.getElementById(
-    "lzero-music-toggle"
-  );
+  <script>
+    const lzeroMusic = document.getElementById("lzero-background-music");
+    const lzeroMusicButton = document.getElementById("lzero-music-toggle");
+    const lzeroMusicStatus = document.getElementById("lzero-music-status");
 
-  const lzeroMusicStatus = document.getElementById(
-    "lzero-music-status"
-  );
-
-  function lzeroToggleMusic() {
-    if (lzeroMusic.paused) {
-      lzeroMusic.play()
-        .then(() => {
-          lzeroMusicButton.textContent = "Ⅱ";
-          lzeroMusicButton.setAttribute(
-            "aria-label",
-            "Pausar trilha sonora"
-          );
-          lzeroMusicStatus.textContent = "Reproduzindo";
-        })
-        .catch(() => {
-          lzeroMusicStatus.textContent =
-            "Não foi possível carregar a música";
-        });
-    } else {
-      lzeroMusic.pause();
-      lzeroMusicButton.textContent = "▶";
-      lzeroMusicButton.setAttribute(
-        "aria-label",
-        "Ativar trilha sonora"
-      );
-      lzeroMusicStatus.textContent = "Pausado";
+    function lzeroToggleMusic() {
+      if (lzeroMusic.paused) {
+        lzeroMusic.play()
+          .then(() => {
+            lzeroMusicButton.textContent = "Ⅱ";
+            lzeroMusicButton.setAttribute("aria-label", "Pausar trilha sonora");
+            lzeroMusicStatus.textContent = "Reproduzindo";
+          })
+          .catch(() => {
+            lzeroMusicStatus.textContent = "Não foi possível carregar a música";
+          });
+      } else {
+        lzeroMusic.pause();
+        lzeroMusicButton.textContent = "▶";
+        lzeroMusicButton.setAttribute("aria-label", "Ativar trilha sonora");
+        lzeroMusicStatus.textContent = "Pausado";
+      }
     }
-  }
 
-  lzeroMusic.addEventListener("ended", () => {
-    lzeroMusicButton.textContent = "▶";
-    lzeroMusicStatus.textContent = "Toque para ouvir";
-  });
+    lzeroMusic.addEventListener("ended", () => {
+      lzeroMusicButton.textContent = "▶";
+      lzeroMusicStatus.textContent = "Toque para ouvir";
+    });
 
-  lzeroMusic.addEventListener("error", () => {
-    lzeroMusicStatus.textContent =
-      "Verifique o arquivo de áudio";
-  });
-</script>
- 
+    lzeroMusic.addEventListener("error", () => {
+      lzeroMusicStatus.textContent = "Verifique o arquivo de áudio";
+    });
+  </script>
+</body>
 </html>
+ 

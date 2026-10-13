@@ -125,3 +125,69 @@ body {
     padding-bottom: 155px;
   }
 }
+
+/* TRILHA SONORA FIXA LZerØ */
+#lzero-music-player {
+  position: fixed;
+  left: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(340px, calc(100% - 32px));
+  padding: 12px;
+  color: #fff;
+  background: rgba(12, 12, 15, 0.96);
+  border: 1px solid #37373d;
+  border-left: 3px solid #ff233d;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  backdrop-filter: blur(12px);
+}
+
+#lzero-music-toggle {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: #ff233d;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lzero-music-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lzero-music-label {
+  color: #ff5265;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.lzero-music-info strong {
+  font-size: 14px;
+}
+
+#lzero-music-status {
+  color: #aaa;
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  #lzero-music-player {
+    left: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: min(310px, calc(100% - 24px));
+    padding: 10px;
+  }
+}

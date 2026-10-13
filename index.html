@@ -46,25 +46,75 @@
         <div class="hero-foot"><span class="pulse"></span> MÚSICA AUTORAL • INDEPENDENTE</div>
       </div>  
 
-<div class="hero-visual hero-photo">
-<img
-src="https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/banda-lzero.png.PNG"
-    alt="Integrantes da LZerØ"
-    class="hero-band-image"
-  >
+
+<div class="hero-visual hero-photo hero-carousel">
+
+  <img
+    id="hero-carousel-image"
+    src="https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Serginho%20Vocal%3AGTR.JPG"
+    alt="Serginho Iero — vocal e guitarra"
+    class="hero-band-image">
+
   <div class="hero-photo-overlay"></div>
+
   <div class="visual-caption">
     NÃO É SOBRE SER INTACTO.<br>
     É SOBRE CONTINUAR.
   </div>
-  
-  
-  <div class="visual-number">01 <span>— 03</span></div> 
+
+  <button
+    type="button"
+    class="carousel-arrow carousel-prev"
+    onclick="changeHeroSlide(-1)"
+    aria-label="Foto anterior">‹</button>
+
+  <button
+    type="button"
+    class="carousel-arrow carousel-next"
+    onclick="changeHeroSlide(1)"
+    aria-label="Próxima foto">›</button>
+
+  <div class="visual-number" id="hero-carousel-number">
+    01 <span>— 03</span>
+  </div>
+
 </div>
 
-  
- <div class="visual-number">01 <span>— </span></div>
-</div>
+<script>
+  const heroSlides = [
+    {
+      src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Serginho%20Vocal%3AGTR.JPG",
+      alt: "Serginho Iero — vocal e guitarra"
+    },
+    {
+      src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Rob5.PNG",
+      alt: "Rob Jr. — bateria"
+    },
+    {
+      src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Serginho3.PNG",
+      alt: "Serginho Iero"
+    }
+  ];
+
+  let heroSlideIndex = 0;
+
+  function changeHeroSlide(direction) {
+    heroSlideIndex =
+      (heroSlideIndex + direction + heroSlides.length)
+      % heroSlides.length;
+
+    const image = document.getElementById("hero-carousel-image");
+    const number = document.getElementById("hero-carousel-number");
+
+    image.src = heroSlides[heroSlideIndex].src;
+    image.alt = heroSlides[heroSlideIndex].alt;
+
+    number.innerHTML =
+      String(heroSlideIndex + 1).padStart(2, "0") +
+      ' <span>— 03</span>';
+  }
+</script>
+
       
       <div class="hero-bottom"><span>01 / PALAVRA ATRAVÉS DA ARTE</span><span>SCROLL PARA EXPLORAR ↓</span></div>
       

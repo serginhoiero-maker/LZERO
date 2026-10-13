@@ -191,3 +191,27 @@ body {
     padding: 10px;
   }
 }
+
+/* POSIÇÃO FIXA DO PLAYER ORQUESTRA LZerØ */
+#lzero-music-player {
+  position: fixed !important;
+  left: 16px !important;
+  bottom: max(16px, env(safe-area-inset-bottom)) !important;
+  right: auto !important;
+  z-index: 10000 !important;
+  width: min(340px, calc(100% - 32px)) !important;
+  margin: 0 !important;
+  background: rgba(12, 12, 15, 0.97) !important;
+  border: 1px solid #37373d !important;
+  border-left: 3px solid #ff233d !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+@media (max-width: 600px) {
+  #lzero-music-player {
+    left: 12px !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    width: calc(100% - 24px) !important;
+  }
+}

@@ -22,16 +22,29 @@ document.querySelectorAll("[data-link]").forEach((el) => {
   }
 });
 
+
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".main-nav");
-menuToggle?.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.textContent = open ? "×" : "☰";
-});
-nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
-  nav.classList.remove("open");
-  menuToggle?.setAttribute("aria-expanded", "false");
-  if (menuToggle) menuToggle.textContent = "☰";
-}));
-document.getElementById("year").textContent = new Date().getFullYear();
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.textContent = open ? "×" : "☰";
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "☰";
+    });
+  });
+}
+
+const year = document.getElementById("year");
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+

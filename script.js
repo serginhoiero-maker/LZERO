@@ -40,7 +40,6 @@ menuToggle.setAttribute(“aria-expanded”, “false”);
 menuToggle.textContent = “☰”;
 });
 });
-}
 
 const year = document.getElementById("year");
 if (year) {

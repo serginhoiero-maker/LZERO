@@ -74,7 +74,7 @@
     aria-label="Próxima foto">›</button>
 
   <div class="visual-number" id="hero-carousel-number">
-    01 <span>— 07</span>
+    01 <span>— 08</span>
   </div>
 
 </div>
@@ -82,32 +82,36 @@
 <script>
 const heroSlides = [
   {
- src:   src="https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Lz1.PNG"
-    alt: "Serginho Iero — vocal e guitarra"
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Lz1.PNG", 
+    alt: "Formação da LZerØ"
+  },
+ {
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Fotolzero01.PNG",
+    alt: "foto lzero"
   },
   {
-    src: "https://raw.githubusercontent.com/serginhiero-maker/LZERO/main/Lz3.JPG",
-    alt: "Formação LZerØ"
-  },
-  {
-    src: "https://raw.githubusercontent.com/serginhiero-maker/LZERO/main/Rob5.PNG",
-    alt: "Rob Jr. — bateria"
-  },
-  {
-    src: "https://raw.githubusercontent.com/serginhiero-maker/LZERO/main/Si1.jpg",
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Si1.jpg",
     alt: "Serginho Iero"
   },
   {
-    src: "https://raw.githubusercontent.com/serginhiero-maker/LZERO/main/Serginho4.JPG",
-    alt: "Serginho Iero"
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Rob5.PNG",
+    alt: "Roberto 2ºAto"
   },
   {
-    src: "https://raw.githubusercontent.com/serginhiero-maker/LZERO/main/Lz2.png",
-    alt: "Serginho e Roberto — LZerØ"
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Serginho Vocal:GTR.JPG",
+    alt: "Serginho 2ºAto"
   },
   {
-    src: "https://raw.githubusercontent.com/serginhiero-maker/LZERO/main/Foto01.png",
-    alt: "Serginho e Roberto — LZerØ"
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Bd2.PNG",
+    alt: "Bruno Dourado"
+  },
+  {
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Serginho3.PNG",
+    alt: "Serginho"
+  },
+  {
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/AG1.PNG",
+    alt: "André Gomes"
   }
 ];
 
@@ -117,10 +121,7 @@ function changeHeroSlide(direction) {
   const image = document.getElementById("hero-carousel-image");
   const number = document.getElementById("hero-carousel-number");
 
-  if (!image || !number) {
-    console.error("Elementos do carrossel não encontrados.");
-    return;
-  }
+  if (!image || !number) return;
 
   heroSlideIndex =
     (heroSlideIndex + direction + heroSlides.length) % heroSlides.length;
@@ -138,7 +139,13 @@ function changeHeroSlide(direction) {
 window.changeHeroSlide = changeHeroSlide;
 
 document.addEventListener("DOMContentLoaded", function () {
+  const image = document.getElementById("hero-carousel-image");
   const number = document.getElementById("hero-carousel-number");
+
+  if (image) {
+    image.src = heroSlides[0].src;
+    image.alt = heroSlides[0].alt;
+  }
 
   if (number) {
     number.innerHTML =

@@ -84,8 +84,12 @@
 
 const heroSlides = [
   {
+    src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Lz1.PNG",
+    alt: "Serginho Iero — vocal e guitarra"
+  },
+  {
     src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Lz3.JPG",
-    alt: "FORMAÇÃO"
+    alt: "Formação LZerØ"
   },
   {
     src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Rob5.PNG",
@@ -106,7 +110,30 @@ const heroSlides = [
   {
     src: "https://raw.githubusercontent.com/serginhoiero-maker/LZERO/main/Foto01.png",
     alt: "Serginho e Roberto — LZerØ"
-  {    
+  }
+];
+
+let heroSlideIndex = 0;
+
+function changeHeroSlide(direction) {
+  const image = document.getElementById("hero-carousel-image");
+  const number = document.getElementById("hero-carousel-number");
+
+  if (!image || !number || heroSlides.length === 0) return;
+
+  heroSlideIndex =
+    (heroSlideIndex + direction + heroSlides.length) % heroSlides.length;
+
+  image.src = heroSlides[heroSlideIndex].src;
+  image.alt = heroSlides[heroSlideIndex].alt;
+
+  number.innerHTML =
+    String(heroSlideIndex + 1).padStart(2, "0") +
+    " <span>— " +
+    String(heroSlides.length).padStart(2, "0") +
+    "</span>";
+}
+ 
 ];
 
   let heroSlideIndex = 0;
